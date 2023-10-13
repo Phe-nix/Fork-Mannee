@@ -1,8 +1,14 @@
-import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { Image, View, Text, Button, FlatList, ScrollView } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import Member from "../components/Member";
+import {
+  Image,
+  View,
+  Text,
+  Button,
+  FlatList,
+  ScrollView,
+  TextInput,
+} from "react-native";
+import { useEffect, useState } from "react";
 
 const Data = [
   {
@@ -17,6 +23,47 @@ const Data = [
   },
 ];
 
-export default function BillEdit({ navigation }) {
-  return <Member data={Data} stage="edit"></Member>;
+export default function BillAdd({ navigation }) {
+  const [color, setColor] = useState(false);
+  useEffect(() => {
+    const routeColor = route.params ? route.params.color : "";
+    if (routeColor) {
+      setColor(routeColor);
+    }
+  }, [route.params]);
+
+  return (
+    <>
+      <View className="my-2 m-[20px] h-full">
+        <View className="border-2 p-2 rounded-md border-[#CFCFCF]">
+          <View className=" border-b-[0.25px] flex flex-row justify-between items-center py-1">
+            <Text className="font-semibold">Name</Text>
+            <TextInput
+              placeholder="Enter Name"
+              className="p-2 rounded-lg w-28 h-8 ml-2"
+            />
+          </View>
+          <View className="border-t-[0.25px] flex flex-row justify-between items-center py-1">
+            <View className="flex flex-row items-center">
+              <Text className="font-semibold">Color</Text>
+              <View
+                className="mx-2 w-6 h-6 rounded-full"
+                style={{ backgroundColor: color }}
+              ></View>
+            </View>
+            <View className="flex flex-row items-center">
+              <Text>{color ? color : "Pick Color"}</Text>
+              <Button
+                title=">"
+                onPress={() =>
+                  navigation.navigate("ColorPick", { page: "BillEdit" })
+                }
+              />
+            </View>
+          </View>
+        </View>
+        <Member data={Data} stage="edit" type="edit"></Member>
+      </View>
+    </>
+  );
 }

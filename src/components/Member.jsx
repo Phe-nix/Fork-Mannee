@@ -3,20 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Image, View, Text, Button, FlatList, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import MemberStructure from "./MemberStructure";
-export default function Member({ data, stage }) {
+export default function Member({ data, stage, type }) {
   const keyExtractor = (item) => item.id.toString();
   return (
-    <View className="h-[100%]">
-      <View className="flex items-center my-4  m-[20px]">
-        <Text className="text-[18px] font-bold ">Member(s)</Text>
-        <View className="border-2 max-h-[650px] my-5 p-[15px] rounded-md border-[#CFCFCF] w-full ">
+    <View className="h-full">
+      <View className="flex items-center ">
+        <Text className="text-[17px] font-bold ">Member(s)</Text>
+        <View className="border-2 max-h-[650px] my-5 p-3 rounded-md border-[#CFCFCF] w-full ">
           <View className="items-end">
-            <Text
-              className="text-[20px]  "
-              onPress={() => alert("add members")}
-            >
-              +
-            </Text>
+            {type === "edit" && (
+              <Text
+                className="text-[29px] pb-2 "
+                onPress={() => alert("add members")}
+              >
+                +
+              </Text>
+            )}
           </View>
           <ScrollView className="w-full">
             <FlatList
