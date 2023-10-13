@@ -4,11 +4,11 @@ export default function DataBox({ id, name, price, amount_of_member, page }) {
   return (
     <View
       className={`flex flex-row justify-between ${
-        page == "food" ? "border-b-2 " : "border-2 my-2"
-      } p-[15px] rounded-md border-[#CFCFCF]`}
+        page == "food" ? "border-b-2 p-[15px]" : "border-2 my-2  p-[25px]"
+      }  rounded-md border-[#CFCFCF]`}
     >
       <View className="pt-2">
-        <Text>{name}</Text>
+        <Text className="font-medium">{name}</Text>
       </View>
       <View className=" items-end">
         <Text>฿{price}</Text>

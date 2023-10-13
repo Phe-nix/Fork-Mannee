@@ -7,7 +7,7 @@ import BillSummary from "../screens/BillSummary";
 
 const Stack = createStackNavigator();
 
-export default function CreatingSubNavigate() {
+export default function CreatingSubNavigate({ name, route, navigation }) {
   return (
     <Stack.Navigator initialRouteName="AllSubsciptions">
       <Stack.Screen
@@ -24,7 +24,18 @@ export default function CreatingSubNavigate() {
           ),
         })}
       />
-      <Stack.Screen name="BillSummary" component={BillSummary} />
+      <Stack.Screen
+        name="BillSummary"
+        component={BillSummary}
+        options={({ navigation, props }) => ({
+          headerRight: () => (
+            <Button
+              title="Edit"
+              onPress={() => navigation.navigate("BillEdit")}
+            />
+          ),
+        })}
+      />
     </Stack.Navigator>
   );
 }

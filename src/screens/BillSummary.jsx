@@ -2,6 +2,7 @@ import { Image, View, Text, Button, FlatList, ScrollView } from "react-native";
 import Member from "../components/Member";
 import MainNavigation from "../router/MainNavigation";
 import DataBox from "../components/DataBox";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const MemberData = [
   {
     id: 1,
@@ -63,7 +64,7 @@ const FoodData = [
     amount_of_member: 3,
   },
 ];
-export default function BillSummary({ route }) {
+export default function BillSummary({ route, navigation }) {
   const { id } = route.params;
 
   return (
@@ -71,14 +72,13 @@ export default function BillSummary({ route }) {
       <ScrollView className="w-full h-full  ">
         <View className="my-5  m-[20px]">
           <ScrollView className="w-full">
-            <View className="flex flex-row justify-end w-full">
-              <Text className="text-[17px] mb-4 text-center font-bold ">
+            <View className="flex flex-row justify-end ">
+              <Text className="text-[17px] mb-5 text-center font-bold ">
                 Food(s)
               </Text>
-
               <Text
-                className="text-[30px]  ml-28 mr-2 "
-                onPress={() => alert("add members")}
+                className="text-[30px] pb-1  ml-28 mr-2 "
+                onPress={() => navigation.navigate("FoodAdd")}
               >
                 +
               </Text>
@@ -89,13 +89,17 @@ export default function BillSummary({ route }) {
               keyExtractor={(item) => item.id.toString()}
               data={FoodData}
               renderItem={({ item }) => (
-                <DataBox
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  amount_of_member={item.amount_of_member}
-                  page="food"
-                ></DataBox>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("FoodEdit")}
+                >
+                  <DataBox
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    amount_of_member={item.amount_of_member}
+                    page="food"
+                  ></DataBox>
+                </TouchableOpacity>
               )}
             />
           </ScrollView>

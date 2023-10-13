@@ -23,7 +23,7 @@ const Data = [
   },
 ];
 
-export default function BillAdd({ navigation }) {
+export default function BillAdd({ navigation, route }) {
   const [color, setColor] = useState(false);
   useEffect(() => {
     const routeColor = route.params ? route.params.color : "";
@@ -62,7 +62,14 @@ export default function BillAdd({ navigation }) {
             </View>
           </View>
         </View>
-        <Member data={Data} stage="edit" type="edit"></Member>
+        <View className=" max-h-[250px] h-[250px] mt-4 ">
+          <Member
+            data={Data}
+            stage="add"
+            type="edit"
+            memberType="delete"
+          ></Member>
+        </View>
       </View>
     </>
   );

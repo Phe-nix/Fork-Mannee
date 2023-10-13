@@ -75,7 +75,12 @@ export default function BillAdd({ navigation, route }) {
           </View>
         </View>
         <View className=" max-h-[250px] h-[250px] mt-4 ">
-          <Member data={Data} stage="add" type="edit"></Member>
+          <Member
+            data={Data}
+            stage="add"
+            type="edit"
+            memberType="delete"
+          ></Member>
         </View>
       </View>
     </>

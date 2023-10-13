@@ -99,8 +99,13 @@ export default function OnCreatingSub({ navigation, route }) {
           <Selecter noti={handleCycle} />
         </View>
       </View>
-      <View>
-        <Member data={Data} stage="add" type="read"></Member>
+      <View className="mt-4">
+        <Member
+          data={Data}
+          stage="add"
+          type="read"
+          memberType="delete"
+        ></Member>
       </View>
     </View>
   );

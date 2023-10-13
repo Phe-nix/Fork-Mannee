@@ -11,6 +11,9 @@ import OnCreatingSub from "../screens/OnCreatingSub";
 import ColorPick from "../screens/ColorPick";
 import BillAdd from "../screens/BillAdd";
 import BillEdit from "../screens/BillEdit";
+import AddMember from "../screens/AddMember";
+import FoodAdd from "../screens/FoodAdd";
+import FoodEdit from "../screens/FoodEdit";
 
 const Stack = createStackNavigator();
 
@@ -55,7 +58,14 @@ export default function AuthNavigation() {
               headerShown: true,
               headerTitle: "New Bill",
               headerBackTitle: " ",
-              headerRight: () => <Button title="Add" />,
+              headerRight: () => (
+                <Button
+                  title="Add"
+                  onPress={() => {
+                    alert("add new Bill");
+                  }}
+                />
+              ),
             }}
           />
           <Stack.Screen
@@ -65,7 +75,37 @@ export default function AuthNavigation() {
               headerShown: true,
               headerTitle: "Edit Bill",
               headerBackTitle: " ",
+              headerRight: () => <Button title="Save" />,
+            }}
+          />
+          <Stack.Screen
+            name="AddMember"
+            component={AddMember}
+            options={{
+              headerShown: true,
+              headerTitle: "Add Member",
+              headerBackTitle: " ",
               headerRight: () => <Button title="Add" />,
+            }}
+          />
+          <Stack.Screen
+            name="FoodAdd"
+            component={FoodAdd}
+            options={{
+              headerShown: true,
+              headerTitle: "New Food",
+              headerBackTitle: " ",
+              headerRight: () => <Button title="Add" />,
+            }}
+          />
+          <Stack.Screen
+            name="FoodEdit"
+            component={FoodEdit}
+            options={{
+              headerShown: true,
+              headerTitle: "Edit Food",
+              headerBackTitle: " ",
+              headerRight: () => <Button title="Save" />,
             }}
           />
         </Stack.Group>

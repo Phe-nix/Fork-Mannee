@@ -2,9 +2,11 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Image, View, Text, Button, FlatList, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 import MemberStructure from "./MemberStructure";
-export default function Member({ data, stage, type }) {
+export default function Member({ data, stage, type, memberType }) {
   const keyExtractor = (item) => item.id.toString();
+  const navigation = useNavigation();
   return (
     <View className="h-full">
       <View className="flex items-center ">
@@ -13,19 +15,20 @@ export default function Member({ data, stage, type }) {
           <View className="items-end">
             {type === "edit" && (
               <Text
+                onPress={() => navigation.navigate("AddMember")}
                 className="text-[29px] pb-2 "
-                onPress={() => alert("add members")}
               >
                 +
               </Text>
             )}
           </View>
-          <ScrollView className="w-full">
+          <ScrollView className="w-full max-h-[250px]">
             <FlatList
               keyExtractor={keyExtractor}
               data={data}
               renderItem={({ item }) => (
                 <MemberStructure
+                  memberType={memberType}
                   id={item.id}
                   img={item.img}
                   name={item.name}

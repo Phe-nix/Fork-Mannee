@@ -1,6 +1,7 @@
 import { Image, View, Text, Button, FlatList, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import DataBox from "../components/DataBox";
+import CreatingSubNavigate from "../router/CreatingSubNavigate";
 const Data = [
   {
     id: 1,
@@ -147,7 +148,9 @@ export default function Bill({ route, navigation }) {
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("BillSummary", { id: item.id });
+                navigation.navigate("BillSummary", {
+                  id: item.id,
+                });
               }}
             >
               <DataBox
