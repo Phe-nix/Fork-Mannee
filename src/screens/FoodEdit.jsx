@@ -38,7 +38,12 @@ export default function FoodEdit({}) {
         />
       </View>
       <View className=" max-h-[250px] h-[250px] mt-4 ">
-        <Member data={Data} stage="add" type="edit" memberType="add"></Member>
+        <Member
+          data={Data}
+          stage="foodEdit"
+          type="edit"
+          memberType="add"
+        ></Member>
       </View>
     </View>
   );
