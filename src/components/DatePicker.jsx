@@ -27,6 +27,8 @@ const DatePicker = ({selectDate}) => {
         mode="date"
         onConfirm={handleConfirm}
         onCancel={hideDatePicker}
+        textColor="#000"
+        buttonTextColorIOS="#000"
       />
     </View>
   );
