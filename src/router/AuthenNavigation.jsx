@@ -8,6 +8,7 @@ import Registor from "../screens/Registor";
 import MainNavigation from "./MainNavigation";
 import CreatingSub from "../screens/CreatingSub";
 import OnCreatingSub from "../screens/OnCreatingSub";
+import ColorPick from "../screens/ColorPick";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ export default function AuthNavigation() {
                     {{headerShown: true , headerTitle: 'New Subscription', headerBackTitle: ' ' , headerRight: () => (
                         <Button title="Add"/>
                     ) }}/>
+                    <Stack.Screen name="ColorPick" component={ColorPick} options={{headerShown: true, headerTitle: 'Pick a Color', headerBackTitle: ' '}}/>
                 </Stack.Group>
             </Stack.Navigator>
         </NavigationContainer>
