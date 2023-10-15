@@ -6,13 +6,13 @@ import { Checkbox } from "react-native-paper";
 export default function MemberStructure({ id, img, name, type, memberType }) {
   const [checked, setChecked] = useState(false);
   return (
-    <View className="flex flex-row w-full justify-between  my-2  border-2 p-[10px] rounded-md border-[#CFCFCF]">
+    <View className="h- full flex flex-row w-full justify-between  my-2  border p-[10px] rounded-md border-[#CFCFCF]">
       <View className="flex flex-row">
         <Image className="h-10 w-10 rounded-full" source={{ uri: img }} />
         <Text className="p-3">{name}</Text>
       </View>
-      {memberType === "add" ? (
-        <View className="border-2 rounded-md border-[#CFCFCF]">
+      {memberType === "add" && (
+        <View className="border rounded-md border-[#CFCFCF]">
           <Checkbox
             color="#808080"
             status={checked ? "checked" : "unchecked"}
@@ -21,7 +21,8 @@ export default function MemberStructure({ id, img, name, type, memberType }) {
             }}
           />
         </View>
-      ) : (
+      )}
+      {memberType === "delete" && (
         <TouchableOpacity
           className="flex flex-row m-2"
           onPress={() => alert(`delete member ${id} `)}
@@ -33,6 +34,7 @@ export default function MemberStructure({ id, img, name, type, memberType }) {
           ></FontAwesomeIcon>
         </TouchableOpacity>
       )}
+      {memberType === "none" && <></>}
     </View>
   );
 }

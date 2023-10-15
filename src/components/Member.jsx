@@ -11,7 +11,7 @@ export default function Member({ data, stage, type, memberType }) {
     <View className="h-full">
       <View className="flex items-center ">
         <Text className="text-[17px] font-bold ">Member(s)</Text>
-        <View className="border-2 max-h-[650px] my-5 p-3 rounded-md border-[#CFCFCF] w-full ">
+        <View className="border max-h-[650px] my-5 p-3  rounded-xl border-[#CFCFCF] w-full ">
           <View className="items-end">
             {type === "edit" && (
               <Text
@@ -41,7 +41,7 @@ export default function Member({ data, stage, type, memberType }) {
       {stage === "edit" && (
         <View className=" w-full mt-3">
           <TouchableOpacity
-            className="flex flex-row w-full  bg-[#BB2727] h-[40px]  rounded-md "
+            className="flex flex-row w-full   bg-[#BB2727] h-[40px]   rounded-xl "
             onPress={() => alert("delete bill")}
           >
             <View className="p-2 justify-center">
@@ -60,7 +60,7 @@ export default function Member({ data, stage, type, memberType }) {
       {stage === "foodEdit" && (
         <View className="  w-full mt-3">
           <TouchableOpacity
-            className="flex bottom-0 flex-row w-full  bg-[#BB2727] h-[40px]  rounded-md "
+            className="flex bottom-0 flex-row w-full  bg-[#BB2727] h-[40px]   rounded-xl "
             onPress={() => alert("delete bill")}
           >
             <View className="p-2 justify-center">

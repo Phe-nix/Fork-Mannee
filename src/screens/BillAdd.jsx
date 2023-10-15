@@ -45,7 +45,7 @@ export default function BillAdd({ navigation, route }) {
   return (
     <>
       <View className="my-2 m-[20px] h-full">
-        <View className="border-2 p-2 rounded-md border-[#CFCFCF]">
+        <View className="border p-2 rounded-md border-[#CFCFCF]">
           <View className=" border-b-[0.25px] flex flex-row justify-between items-center py-1">
             <Text className="font-semibold">Name</Text>
             <TextInput

@@ -108,12 +108,12 @@ export default function BillSummary({ route, navigation }) {
           <Member data={MemberData} stage="add" type="edit"></Member>
         </View>
         <View className=" w-full mt-28 ">
-          <View className="flex flex-row  border-2 m-5 p-4 rounded-md justify-between">
+          <View className="flex flex-row  border m-5 p-4 rounded-md justify-between">
             <Text className=" text-[16px]">Total</Text>
             <Text className=" text-[16px]">1987 ฿</Text>
           </View>
 
-          <View className="flex flex-row border-2 mx-5 p-4 mb-5 justify-between rounded-md bg-black">
+          <View className="flex flex-row border mx-5 p-4 mb-5 justify-between rounded-md bg-black">
             <Text className="text-white text-[16px]">You need to pay</Text>
             <Text className="text-white text-[16px]">150 ฿</Text>
           </View>
