@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { Button, SafeAreaView, StyleSheet, View } from "react-native";
-import ColorPicker from "react-native-wheel-color-picker";
+import React, { useState } from 'react';
+import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
+import ColorPicker from 'react-native-wheel-color-picker';
 
-const ColorPick = ({ navigation, route }) => {
-  const { page } = route.params;
-  const [color, setColor] = useState("");
-
-  const onColorChange = (color) => {
+const ColorPick = ({ navigation }) => {
+  const [color, setColor] = useState('');
+  
+  const onColorChange = color => {
     setColor(color);
   };
   return (
@@ -22,11 +21,7 @@ const ColorPick = ({ navigation, route }) => {
         />
       </View>
       <View className="top-full border-[0.5px] border-[#CFCFCF] rounded-xl w-28 bg-black">
-        <Button
-          title="Confirm"
-          color={"#ffff"}
-          onPress={() => navigation.navigate(`${page}`, { color: color })}
-        />
+        <Button title='Confrim' color={'#ffff'} onPress={() => navigation.navigate('NewSubscription', {color : color})} />
       </View>
     </SafeAreaView>
   );
